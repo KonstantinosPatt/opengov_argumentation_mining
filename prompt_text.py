@@ -50,3 +50,5 @@ Example #2
 }
 
 '''
+
+system_instruction = ''
