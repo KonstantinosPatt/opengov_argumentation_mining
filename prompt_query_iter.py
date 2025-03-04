@@ -1,11 +1,13 @@
 from google import genai
 from prompt_text import main_prompt
 import pandas as pd
+import time
 import re
 
-client = genai.Client(api_key="AIzaSyC79gY3eduoIp56EEYFglAOUpo9GhvKZzU")
+api_key = open('/Users/kp/Documents/EELLAK/arg_min_data/gemini_key.txt', 'r').read().strip()
+client = genai.Client(api_key=api_key)
 
-df = pd.read_csv('_SELECT_Article_legislation_id_PublicConsultation_article_id_Art_202502271248.csv')
+df = pd.read_csv('opengov_data_mini.csv')
 
 def get_toulmin_json(article, comment):
     prompt = main_prompt, "\n Here's the article: \n{} \n and here's the comment: \n {} \n".format(article, comment)
@@ -23,6 +25,7 @@ con = 0
 for article, comment in zip(articles, comments):
     response = get_toulmin_json(article, comment)
     responses.append(response)
+    time.sleep(4)
 
     print('Appended response #{} of {}.'.format(con, len(comments)))
     con +=1
