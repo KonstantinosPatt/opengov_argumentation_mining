@@ -25,27 +25,20 @@ def get_toulmin_json(article, comment):
 articles = df['article_text'].tolist()
 comments = df['comment_text'].tolist()
 
-
-response = get_toulmin_json(articles[2], comments[2])
-print(response)
-
+# Add a column in the dataframe for the rhetorical analysis
 responses = []
-responses_j = ''
 con = 0
 for article, comment in zip(articles, comments):
     con +=1
     response = get_toulmin_json(article, comment)
     responses.append(response)
-    responses_j += response + ',\n'
     time.sleep(4)
 
     print('Appended response #{} of {}.'.format(con, len(comments)))
 
-
 df['rhetoric_analysis'] = responses
 
-print(df.head())
+# print(df.head())
 
+# Save to csv
 df.to_csv('/Users/kp/Documents/EELLAK/arg_min_data/comments_with_rhetoric_analysis_just_toulmin.csv', index=False)
-# with open('/Users/kp/Documents/EELLAK/arg_min_data/comments_with_rhetoric_analysis.json', 'w') as f:
-#     f.write(responses_j)
