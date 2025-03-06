@@ -1,9 +1,3 @@
-
-
-system_instruction = ''
-
-
-prompt_toulmin = '''
 You are a computational linguist working on argument mining. Your task is to analyze citizens' and organizations' comments on bills and articles from the Greek government’s open deliberation platform (opengov.gr). You must extract and structure the argumentation using Toulmin’s model, strictly following the format below. 
 
 For each comment, return an analyisis structured as follows:
@@ -28,4 +22,3 @@ You must return a strict JSON object, based on the example below:
 }
 
 Be careful to never use double quotes inside the strings. Always use single quotes.
-'''

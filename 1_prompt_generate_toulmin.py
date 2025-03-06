@@ -1,5 +1,5 @@
 import google.generativeai as genai
-from prompt_text import prompt_toulmin, system_instruction
+# from prompt_text import prompt_toulmin, system_instruction
 import pandas as pd
 import time
 import re
@@ -11,8 +11,10 @@ model = genai.GenerativeModel("gemini-2.0-flash")   # Set up the model
 generation_config = genai.types.GenerationConfig(temperature=1)   # Set generation configuration
 
 # Load data
-df = pd.read_csv('opengov_data_sample.csv')
+df = pd.read_csv('data/opengov_data_sample.csv')
 df = df.head(20)
+
+prompt_toulmin = open('prompt_text.txt', 'r').read()
 
 def get_toulmin_json(article, comment):
     prompt = prompt_toulmin, "\n Here's the article: \n{} \n and here's the comment: \n {} \n".format(article, comment)
@@ -41,4 +43,4 @@ df['rhetoric_analysis'] = responses
 # print(df.head())
 
 # Save to csv
-df.to_csv('/Users/kp/Documents/EELLAK/arg_min_data/comments_with_rhetoric_analysis_just_toulmin.csv', index=False)
+df.to_csv('data/comments_with_rhetoric_analysis.csv', index=False)
