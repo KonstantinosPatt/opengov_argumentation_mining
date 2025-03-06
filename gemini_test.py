@@ -15,24 +15,25 @@
 # print(answer.text)
 
 
-import google.generativeai as genai
+# import google.generativeai as genai
 
-# Configure your API key
-api_key = open('/Users/kp/Documents/EELLAK/arg_min_data/gemini_key.txt', 'r').read().strip()
-genai.configure(api_key=api_key)
+# # Configure your API key
+# api_key = open('/Users/kp/Documents/EELLAK/arg_min_data/gemini_key.txt', 'r').read().strip()
+# genai.configure(api_key=api_key)
 
-# Set up the model
-model = genai.GenerativeModel("gemini-2.0-flash")
+# # Set up the model
+# model = genai.GenerativeModel("gemini-2.0-flash")
 
-# Set generation configuration
-generation_config = genai.types.GenerationConfig(
-    temperature=0.5
-)
+# # Set generation configuration
+# generation_config = genai.types.GenerationConfig(
+#     temperature=0.5
+# )
 
-# Generate content
-response = model.generate_content(
-    "Write a short poem about the ocean.",
-    generation_config=generation_config
-)
+# # Generate content
+# response = model.generate_content(
+#     "Write a short poem about the ocean.",
+#     generation_config=generation_config
+# )
 
-print(response.text)
+# print(response.text)
+
