@@ -14,7 +14,8 @@ generation_config = genai.types.GenerationConfig(temperature=1)   # Set generati
 df = pd.read_csv('data/opengov_data_sample.csv')
 df = df.head(20)
 
-prompt_toulmin = open('prompt_text.txt', 'r').read()
+# Load prompt
+prompt_toulmin = open('toulmin_prompt_text.txt', 'r').read()
 
 def get_toulmin_json(article, comment):
     prompt = prompt_toulmin, "\n Here's the article: \n{} \n and here's the comment: \n {} \n".format(article, comment)
