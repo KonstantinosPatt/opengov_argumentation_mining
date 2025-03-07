@@ -17,7 +17,7 @@ You must return a strict JSON object, based on the example below:
         "Warrant": "A small country with limited resources cannot save a vast population facing immense challenges",
         "Backing": "The statement 'Είμαστε μια χώρα με πολλά προβλήματα' (We are a country with many problems) implies limited capacity to help others",
         "Qualifier": "Implicitly conveyed through the rhetorical question 'Μπορεί η Ελλαδίτσα μας να τους σώσει;' (Can our little Greece save them?)",
-        "Rebuttal": "None explicitly stated, but a potential counter argument could be that helping doesn't necessarily mean solving all their problems, but perhaps offering some form of assistance"
+        "Rebuttal": None
       }
 }
 

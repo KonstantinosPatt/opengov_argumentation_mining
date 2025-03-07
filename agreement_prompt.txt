@@ -14,3 +14,5 @@ Example:
   "Summary": "Expresses agreement with the government's decision to abolish the requirements of Law 4648/2019 and suggests the implementation of postal voting."
   "Suggestions": "Suggests the implementation of postal voting and proposes that overseas voters should have the possibility of electing MPs in the electoral regions where they are registered."
 }
+
+Be careful to never use double quotes inside the strings. Always use single quotes.
