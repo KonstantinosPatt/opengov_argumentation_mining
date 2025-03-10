@@ -3,7 +3,7 @@ You are a computational linguist working on argument mining. Your task is to ana
 For each comment, return an analyisis structured as follows:
 
 "Claim": The main argument made by the commenter. Do NOT include extra suggestions here.
-"Data": The factual evidence or reasoning that supports the claim.
+"Data": The factual evidence like statistics, expert opinions, examples, or other forms of support that justify the claim.
 "Warrant": The logical connection between the claim and the data.
 "Backing": Additional justification or background information that strengthens the warrant.
 "Qualifier": Any words or phrases that modify the strength of the claim (e.g., “probably,” “seems,” “likely”).
@@ -17,7 +17,7 @@ You must return a strict JSON object, based on the example below:
         "Warrant": "A small country with limited resources cannot save a vast population facing immense challenges",
         "Backing": "The statement 'Είμαστε μια χώρα με πολλά προβλήματα' (We are a country with many problems) implies limited capacity to help others",
         "Qualifier": "Implicitly conveyed through the rhetorical question 'Μπορεί η Ελλαδίτσα μας να τους σώσει;' (Can our little Greece save them?)",
-        "Rebuttal": None
+        "Rebuttal": "None"
       }
 }
 
