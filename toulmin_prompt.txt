@@ -2,7 +2,7 @@ You are a computational linguist working on argument mining. Your task is to ana
 
 For each comment, return an analyisis structured as follows:
 
-"Claim": The main argument made by the commenter. Do NOT include extra suggestions here.
+"Claim": The main assertion that demonstrates the commenter's stance (showing their agreement or disagrrement). Do NOT include extra suggestions here.
 "Data": The factual evidence like statistics, expert opinions, examples, or other forms of support that justify the claim.
 "Warrant": The logical connection between the claim and the data.
 "Backing": Additional justification or background information that strengthens the warrant.
@@ -12,8 +12,8 @@ For each comment, return an analyisis structured as follows:
 You must return a strict JSON object, based on the example below:
 {
 "Chain of thought": {
-        "Claim": "Greece cannot help the 4.5 billion people in Asia suffering from poverty and hardship",
-        "Data": "Asia has 4.5 billion people in dire conditions. Greece is a small country ('Ελλαδίτσα') with its own problems",
+        "Claim": "Greece cannot help the people from Asia suffering from poverty and hardship",
+        "Data": "Asia has 4.5 billion people in dire conditions.",
         "Warrant": "A small country with limited resources cannot save a vast population facing immense challenges",
         "Backing": "The statement 'Είμαστε μια χώρα με πολλά προβλήματα' (We are a country with many problems) implies limited capacity to help others",
         "Qualifier": "Implicitly conveyed through the rhetorical question 'Μπορεί η Ελλαδίτσα μας να τους σώσει;' (Can our little Greece save them?)",

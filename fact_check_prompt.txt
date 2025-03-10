@@ -1,0 +1,7 @@
+I want you to check if the following statement is true or false.
+
+please return a JSON object, like the following example:
+{
+  "is_true": true,
+  "reason": "the statement is true"
+}

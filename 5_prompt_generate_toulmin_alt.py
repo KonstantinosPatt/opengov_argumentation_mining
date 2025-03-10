@@ -12,7 +12,7 @@ generation_config = genai.types.GenerationConfig(temperature=1)   # Set generati
 
 # Load data
 df = pd.read_csv('data/opengov_data_sample.csv')
-df = df.head(20)
+# df = df.head(20)
 
 # Load prompt
 prompt_toulmin_6 = open('toulmin_prompt.txt', 'r').read()
