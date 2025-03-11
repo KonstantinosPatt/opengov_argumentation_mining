@@ -43,11 +43,11 @@ for article, comment in zip(articles, comments):
     responses.append(response)
     time.sleep(4)
 
-    print('Appended response #{} of {}.'.format(con, len(comments)))
+    print('Appended extra data in response #{} of {}.'.format(con, len(comments)))
 
 df['agreement'] = responses
 
 print(df.head())
 
 # Save to csv
-df.to_csv('data/comments_with_agreement.csv', index=False)
+df.to_csv('data/comments_with_rhetoric_analysis.csv', index=False)

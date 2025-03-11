@@ -1,6 +1,5 @@
 import google.generativeai as genai
 import pandas as pd
-import json
 import time
 import re
 
@@ -12,10 +11,11 @@ generation_config = genai.types.GenerationConfig(temperature=1)   # Set generati
 
 # Load data
 df = pd.read_csv('data/opengov_data_sample.csv')
-df = df.head(20)
+# Choose comments from a specific article, in this case article 1
+df = df.loc[df['article_id'] == 1]
 
 # Load prompt
-prompt_toulmin = open('toulmin_prompt.txt', 'r').read()
+prompt_toulmin = open('toulmin_prompt_3.txt', 'r').read()
 
 def get_toulmin_json(article, comment):
     prompt = prompt_toulmin, "\n Here's the article: \n{} \n and here's the comment: \n {} \n".format(article, comment)
@@ -37,7 +37,7 @@ for article, comment in zip(articles, comments):
     responses.append(response)
     time.sleep(4)
 
-    print('Appended response #{} of {}.'.format(con, len(comments)))
+    print('Appended toulmin analysis in response #{} of {}.'.format(con, len(comments)))
 
 df['rhetoric_analysis'] = responses
 
@@ -45,13 +45,3 @@ df['rhetoric_analysis'] = responses
 
 # Save to csv
 df.to_csv('data/comments_with_rhetoric_analysis.csv', index=False)
-
-# Create a json file with all the rhetorical analysis
-# combined_json = []
-
-# for r in responses:
-#     r = json.loads(r)
-#     combined_json.append(r)
-
-# with open('data/rhetoric_analysis.json', 'w') as f:
-#     json.dump(combined_json, f, indent=4)

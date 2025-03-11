@@ -11,7 +11,7 @@ model = genai.GenerativeModel("gemini-2.0-flash")   # Set up the model
 generation_config = genai.types.GenerationConfig(temperature=1)   # Set generation configuration
 
 # Load data
-df = pd.read_csv('data/comments_with_rhetoric_analysis_6_and_3.csv')
+df = pd.read_csv('data/comments_with_rhetoric_analysis.csv')
 # df = df.head(20)
 
 # Load prompt
@@ -25,19 +25,30 @@ def get_factcheck_json(datum):
     # factcheck_json = re.findall(r'\{[.\s\S]*\}', factcheck_json.text)[0]
     return factcheck_json.text
 
-data = df['rhetoric_analysis_3'].tolist()
+data = df['rhetoric_analysis'].tolist()
 
+error_json = '''
+{
+  "is_true": None,
+  "reason": None
+}'''
+
+con = 0
 fact_checks = []
-
 for d in data:
-    print(d)
+    con +=1
     d = json.loads(d)
     datum = d['Chain of thought']['Data']
     fact_check = get_factcheck_json(datum)
-    print(fact_check)
+    try:
+        fact_check = re.findall(r'\{[.\s\S]*\}', fact_check)[0]
+    except:
+        fact_check = error_json
     fact_checks.append(fact_check)
+    print('Appended fact checking analysis in response #{} of {}.'.format(con, len(data)))
+
     time.sleep(4)
 
 df['fact_check'] = fact_checks
 
-df.to_csv('data/comments_with_fact_check.csv', index=False)
+df.to_csv('data/comments_with_rhetoric_analysis.csv', index=False)

@@ -3,19 +3,22 @@ import pandas as pd
 import json
 
 # Load data
-df = pd.read_csv('/Users/kp/Documents/EELLAK/arg_min_data/comments_with_rhetoric_analysis_just_toulmin.csv')
+df = pd.read_csv('data/comments_with_rhetoric_analysis.csv')
 
 # print(df.head())
 
 rhetoric = df['rhetoric_analysis'].tolist()
+
+for r in rhetoric[:5]:
+    print(r)
 
 claims = ''
 con = 0
 for r in rhetoric:
     con +=1
     r = json.loads(r)
-    claim = r['Chain of thought']['Claim']
-    # print(con, claim)
+    # claim = r['Chain of thought']['Claim']
+    print(con, claim)
     claims += claim + '\n'
 
 # setup Gemini
